@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db";
 import path from "path";
-
+import movieAApi from './route/api/movie'
 const app = express();
 
 //middleware
@@ -14,7 +14,7 @@ app.use(cors());
 connectDB();
 
 //define Routes
-// app.use("/api/users", require("./routes/api/users"));
+app.use("/api/movies", movieAApi);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
