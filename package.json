@@ -1,0 +1,28 @@
+{
+  "name": "mern-movieapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "config": "^3.3.0",
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon -r esm server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamdiRH/MERN-MovieApp.git"
+  },
+  "author": "hamdiRH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hamdiRH/MERN-MovieApp/issues"
+  },
+  "homepage": "https://github.com/hamdiRH/MERN-MovieApp#readme"
+}
