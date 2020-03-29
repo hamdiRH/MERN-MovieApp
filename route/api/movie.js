@@ -44,6 +44,7 @@ router.delete("/delete/:id", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
 router.put("/update/:id", async (req, res) => {
   try {
     const { id } = req.params;
