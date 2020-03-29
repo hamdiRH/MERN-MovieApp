@@ -1,16 +1,18 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
+import { Result, Button } from "antd";
 
-export default class index extends Component {
-    static propTypes = {
-        prop: PropTypes
-    }
+const index = props => {
+  return (
+    <Result
+      status="404"
+      title="404"
+      subTitle="Sorry, the page you visited does not exist."
+      extra={<Button type="primary">Back Home</Button>}
+    />
+  );
+};
 
-    render() {
-        return (
-            <div>
-                No
-            </div>
-        )
-    }
-}
+index.propTypes = {};
+
+export default index;
