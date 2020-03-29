@@ -43,7 +43,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-// @route  POST localhost:5000/api/movies/delete/:id
+// @route  DELETE localhost:5000/api/movies/delete/:id
 // @desc   delete one movie by id
 // @access Public
 router.delete("/delete/:id", async (req, res) => {
@@ -57,7 +57,7 @@ router.delete("/delete/:id", async (req, res) => {
   }
 });
 
-// @route  POST localhost:5000/api/movies/update/:id
+// @route  PUT localhost:5000/api/movies/update/:id
 // @desc   delete one movie by id
 // @access Public
 router.put("/update/:id", async (req, res) => {
