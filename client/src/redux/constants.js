@@ -29,4 +29,4 @@ export const PUT_MOVIE_FAILURE = `${PUT_MOVIE}_FAILURE`;
 
 export const CLEAR_ERROR = "CLEAR_ERROR";
 
-export const BaseApi = "localhost:5000/api";
+export const BaseApi = "http://localhost:5000/api";

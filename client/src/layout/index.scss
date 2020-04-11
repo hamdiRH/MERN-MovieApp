@@ -1,11 +1,18 @@
 .layout {
   .logo {
     width: 50px;
+    display: flex;
     img {
       width: 100%;
     }
+    span{
+      font-size: 24px;
+      color:white;
+      font-weight: 700;
+      margin-left: 25px;
+      color: lightsteelblue
+    }
   }
-  .content{
-      
+  .content {
   }
 }
