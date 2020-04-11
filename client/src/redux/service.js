@@ -2,8 +2,12 @@ import axios from "axios";
 import { BaseApi } from "./constants";
 
 export const getAllMovies = async () => {
-  const result = await axios.get(`${BaseApi}/movies/getall`);
-  return result.data;
+  try {
+    const result = await axios.get(`${BaseApi}/movies/getall`);
+    return result.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const getOneMovie = async id => {

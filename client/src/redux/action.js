@@ -8,7 +8,7 @@ export function fetchMovies() {
 
 export function fetchMovie(id) {
   return {
-    type: CONSTANTS.GET_ONE_MOVIES_REQUEST,
+    type: CONSTANTS.GET_ONE_MOVIE_REQUEST,
     id
   };
 }

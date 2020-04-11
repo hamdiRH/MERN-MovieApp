@@ -7,7 +7,7 @@ export function* getAllMovies() {
     const data = yield call(api.getAllMovies);
     yield put({
       type: CONSTANTS.GET_ALL_MOVIES_SUCCESS,
-      payload: data.data
+      payload: data,
     });
   } catch (e) {
     yield put({ type: CONSTANTS.GET_ALL_MOVIES_FAILURE, e });
@@ -19,7 +19,7 @@ export function* getOneMovie() {
     const data = yield call(api.getOneMovie);
     yield put({
       type: CONSTANTS.GET_ONE_MOVIE_SUCCESS,
-      payload: data.data
+      payload: data.data,
     });
   } catch (e) {
     yield put({ type: CONSTANTS.GET_ONE_MOVIE_FAILURE, e });
@@ -28,10 +28,15 @@ export function* getOneMovie() {
 
 export function* deleteMovie(action) {
   try {
-    yield call(api.deleteMovie, action.id);
+    const result = yield call(api.deleteMovie, action.id);
     yield put({
       type: CONSTANTS.DELETE_MOVIE_SUCCESS,
-      payload: action.id
+      payload: result,
+    });
+    const data = yield call(api.getAllMovies);
+    yield put({
+      type: CONSTANTS.GET_ALL_MOVIES_SUCCESS,
+      payload: data,
     });
   } catch (e) {
     yield put({ type: CONSTANTS.DELETE_MOVIE_FAILURE, e });
@@ -40,10 +45,15 @@ export function* deleteMovie(action) {
 
 export function* addMovie(action) {
   try {
-    const data = yield call(api.addMovie, action.body);
+    const result = yield call(api.addMovie, action.body);
     yield put({
       type: CONSTANTS.ADD_MOVIE_SUCCESS,
-      payload: data.data
+      payload: result.data,
+    });
+    const data = yield call(api.getAllMovies);
+    yield put({
+      type: CONSTANTS.GET_ALL_MOVIES_SUCCESS,
+      payload: data,
     });
   } catch (e) {
     yield put({ type: CONSTANTS.ADD_MOVIE_FAILURE, e });
@@ -52,10 +62,15 @@ export function* addMovie(action) {
 
 export function* updateMovie(action) {
   try {
-    const data = yield call(api.updateMovie, action.body);
+    const result = yield call(api.updateMovie, action.body);
     yield put({
       type: CONSTANTS.PUT_MOVIE_SUCCESS,
-      payload: data
+      payload: result,
+    });
+    const data = yield call(api.getAllMovies);
+    yield put({
+      type: CONSTANTS.GET_ALL_MOVIES_SUCCESS,
+      payload: data,
     });
   } catch (e) {
     yield put({ type: CONSTANTS.PUT_MOVIE_FAILURE, e });
@@ -83,6 +98,6 @@ export default function* employmentSaga() {
     getOneMovieWatcher(),
     deleteMovieWatcher(),
     addMovieWatcher(),
-    updateMovieWatcher()
+    updateMovieWatcher(),
   ]);
 }
