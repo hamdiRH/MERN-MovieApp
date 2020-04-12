@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Result, Button } from "antd";
 
 const index = props => {
@@ -13,6 +13,6 @@ const index = props => {
   );
 };
 
-index.propTypes = {};
+// index.propTypes = {};
 
 export default index;

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { Card, Avatar, Rate } from "antd";
+import { Card, Rate } from "antd";
 import AddMovie from "./AddMovie";
 import UpdateMovie from "./UpdateMovie";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 
 import "./index.scss";
 const { Meta } = Card;

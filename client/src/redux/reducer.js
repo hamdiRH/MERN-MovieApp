@@ -2,16 +2,16 @@ import * as CONSTANTS from "./constants";
 import produce from "immer";
 export const initialState = {
   loading: {
-    movies: false
+    movies: false,
   },
   data: {
-    movies: []
+    movies: [],
   },
-  error: false
+  error: false,
 };
 
 const reducer = (state = initialState, { type, payload }) =>
-  produce(state, draft => {
+  produce(state, (draft) => {
     switch (type) {
       case CONSTANTS.GET_ALL_MOVIES_REQUEST:
         draft.loading.movies = true;
@@ -22,6 +22,7 @@ const reducer = (state = initialState, { type, payload }) =>
         break;
       case CONSTANTS.GET_ALL_MOVIES_FAILURE:
         draft.loading.movies = false;
+        break;
       default:
         return draft;
     }
