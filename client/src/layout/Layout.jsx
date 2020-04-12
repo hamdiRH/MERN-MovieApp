@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout } from "antd";
 import "./index.scss";
 const { Header, Content, Footer } = Layout;
 const App = ({ children }) => {
@@ -8,7 +8,8 @@ const App = ({ children }) => {
     <Layout className="layout">
       <Header>
         <div className="logo">
-          <img src={require("../assets/logo.png")} /> <span>MovieApp</span>
+          <img src={require("../assets/logo.png")} alt={"logo"} />
+          <span>MovieApp</span>
         </div>
       </Header>
       <Content className="content">{children}</Content>
@@ -20,6 +21,8 @@ const App = ({ children }) => {
   );
 };
 
-App.propTypes = {};
+App.propTypes = {
+  children: PropTypes.any,
+};
 
 export default App;

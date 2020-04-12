@@ -62,7 +62,7 @@ export function* addMovie(action) {
 
 export function* updateMovie(action) {
   try {
-    const result = yield call(api.updateMovie, action.body);
+    const result = yield call(api.updateMovie, action.id, action.body);
     yield put({
       type: CONSTANTS.PUT_MOVIE_SUCCESS,
       payload: result,

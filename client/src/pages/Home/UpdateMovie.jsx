@@ -14,11 +14,11 @@ const layout = {
 const validateMessages = {
   required: "Field is required!",
   types: {
-    email: "${label} is not validate email!",
-    number: "${label} is not a validate number!",
+    email: "Field is not validate email!",
+    number: "Field is not a validate number!",
   },
   number: {
-    range: "${label} must be between ${min} and ${max}",
+    range: "Field must be between 0 and 5",
   },
 };
 
