@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { Card, Rate } from "antd";
+import { Card, Rate, notification } from "antd";
 import AddMovie from "./AddMovie";
 import UpdateMovie from "./UpdateMovie";
 import { DeleteOutlined } from "@ant-design/icons";
@@ -14,10 +14,35 @@ const Home = ({
   addNewMovie,
   updateMovie,
   deleteMovie,
+  error,
 }) => {
   useEffect(() => {
     fetchMovies();
-  }, [fetchMovies]);
+    openNotification();
+  }, [fetchMovies, error.deleteMovie, error.updateMovie]);
+  const openNotification = () => {
+    error.deleteMovie === true
+      ? notification.error({
+          message: "Error",
+          description: "Server error try again later",
+        })
+      : error.deleteMovie === false &&
+        notification.success({
+          message: "Success",
+          description: "Movie  deleted with success",
+        });
+
+    error.updateMovie === true
+      ? notification.error({
+          message: "Error",
+          description: "Server error try again later",
+        })
+      : error.updateMovie === false &&
+        notification.success({
+          message: "Success",
+          description: "Movie  updated with success",
+        });
+  };
   return (
     <>
       <AddMovie addNewMovie={addNewMovie} />
@@ -36,12 +61,7 @@ const Home = ({
                 />
               }
               actions={[
-                <DeleteOutlined
-                  key="delete"
-                  onClick={() => {
-                    deleteMovie(id);
-                  }}
-                />,
+                <DeleteOutlined key="delete" onClick={() => deleteMovie(id)} />,
                 <UpdateMovie
                   updateMovie={updateMovie}
                   name={name}
@@ -79,6 +99,7 @@ Home.propTypes = {
   addNewMovie: PropTypes.func.isRequired,
   updateMovie: PropTypes.func.isRequired,
   deleteMovie: PropTypes.func.isRequired,
+  error: PropTypes.object.isRequired,
 };
 
 export default Home;
