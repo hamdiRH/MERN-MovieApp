@@ -14,12 +14,14 @@ const Home = ({
   addNewMovie,
   updateMovie,
   deleteMovie,
+  clearError,
   error,
 }) => {
   useEffect(() => {
     fetchMovies();
     openNotification();
-  }, [fetchMovies, error.deleteMovie, error.updateMovie]);
+    clearError()
+  }, [error.deleteMovie, error.updateMovie]);
   const openNotification = () => {
     error.deleteMovie === true
       ? notification.error({
