@@ -53,6 +53,13 @@ const reducer = (state = initialState, { type, payload }) =>
         draft.loading.movies = false;
         draft.error.updateMovie = true;
         break;
+      /** Clear Error */
+      case CONSTANTS.CLEAR_ERROR:
+        draft.error = {
+          deleteMovie: null,
+          updateMovie: null,
+        };
+
       default:
         return draft;
     }
